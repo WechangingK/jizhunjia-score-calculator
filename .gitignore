@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+*.exe
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# 数据
+data/*.json
+!data/.gitkeep
+
+# Excel
+*.xlsx
+*.xls
+
+# 环境
+.env
