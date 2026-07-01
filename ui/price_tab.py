@@ -111,7 +111,7 @@ class PriceTab(QWidget):
 		self.ruleCombo = QComboBox()
 		self.ruleCombo.setMinimumWidth(180)
 		self.ruleCombo.setToolTip('选择评分规则，不同项目的评标办法不同')
-		self.ruleCombo.currentIndexChanged.connect(self._onRuleChanged)
+		self.ruleCombo.currentIndexChanged[int].connect(self._onRuleChanged)
 		toolLayout.addWidget(self.ruleCombo)
 
 		manageBtn = QPushButton('📋 管理规则')
@@ -495,7 +495,7 @@ class PriceTab(QWidget):
 	def _openRuleDialog(self):
 		"""打开规则管理对话框"""
 		dlg = RuleDialog(self)
-		dlg.exec()
+		dlg.exec_()
 		self._refreshRuleCombo()
 		if self._lastBidders:
 			self._calculate()

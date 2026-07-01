@@ -111,7 +111,7 @@ class EvaluationTab(QWidget):
 		self.priceRuleCombo = QComboBox()
 		self.priceRuleCombo.setMinimumWidth(160)
 		self.priceRuleCombo.setToolTip('选择价格评分规则')
-		self.priceRuleCombo.currentIndexChanged.connect(self._onPriceRuleChanged)
+		self.priceRuleCombo.currentIndexChanged[int].connect(self._onPriceRuleChanged)
 		toolLayout.addWidget(self.priceRuleCombo)
 
 		self._refreshPriceRuleCombo()

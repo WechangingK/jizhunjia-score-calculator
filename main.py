@@ -4,11 +4,15 @@
 根据评标规则自动计算基准价和应答人价格得分的桌面工具。
 """
 
+import faulthandler
 import sys
+import traceback
+
+faulthandler.enable()
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QBrush, QColor, QFont, QIcon, QPainter, QPen, QPixmap
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QMessageBox
 
 from ui.main_window import MainWindow
 
@@ -52,6 +56,17 @@ def _makeLogo() -> QIcon:
 
 	painter.end()
 	return QIcon(pm)
+
+
+def _exceptionHook(excType, excValue, excTraceback):
+	"""全局异常处理 - 显示错误对话框"""
+	tb = ''.join(traceback.format_exception(excType, excValue, excTraceback))
+	print(f'[CRASH] {tb}')
+	QMessageBox.critical(None, '程序异常',
+		f'发生未捕获的异常：\n\n{tb[-500:]}')
+	sys.__excepthook__(excType, excValue, excTraceback)
+
+sys.excepthook = _exceptionHook
 
 
 def main():
