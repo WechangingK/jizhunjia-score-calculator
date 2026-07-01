@@ -6,9 +6,9 @@
 
 import sys
 
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QBrush, QColor, QFont, QIcon, QPainter, QPen, QPixmap
-from PySide6.QtWidgets import QApplication
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QBrush, QColor, QFont, QIcon, QPainter, QPen, QPixmap
+from PyQt5.QtWidgets import QApplication
 
 from ui.main_window import MainWindow
 
@@ -39,12 +39,7 @@ def _makeLogo() -> QIcon:
 	painter.setPen(QColor('#FFFFFF'))
 	painter.drawText(pm.rect(), Qt.AlignCenter, 'A≈B')
 
-	# 底部 "80" 标签
-	font2 = QFont('Consolas', 16, QFont.Bold)
-	painter.setFont(font2)
-	painter.drawText(pm.rect().adjusted(0, 30, 0, 0), Qt.AlignCenter, '')
-	# 在靠近底部画 ¥
-	painter.drawText(pm.rect().adjusted(0, 18, -38, -8), Qt.AlignRight | Qt.AlignVCenter, '')
+	# 底部金色线
 	pen2 = QPen(QColor('#FFD700'))
 	pen2.setWidth(2)
 	painter.setPen(pen2)
@@ -74,7 +69,7 @@ def main():
 	window = MainWindow()
 	window.show()
 
-	sys.exit(app.exec())
+	sys.exit(app.exec_())
 
 
 if __name__ == '__main__':

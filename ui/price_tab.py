@@ -7,9 +7,9 @@
 
 from typing import Dict, List
 
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QFont
-from PySide6.QtWidgets import (
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import (
 	QAbstractItemView,
 	QComboBox,
 	QFileDialog,
