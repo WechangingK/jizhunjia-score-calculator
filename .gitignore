@@ -19,5 +19,8 @@ data/*.json
 *.xlsx
 *.xls
 
+# Word临时文件
+~$*
+
 # 环境
 .env
